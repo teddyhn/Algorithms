@@ -3,7 +3,23 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+  n = len(recipe)
+  keys = list(recipe.keys())
+
+  batches = [0] * n
+
+  for i in range(n):
+    if ingredients.get(keys[i]) is None:
+      return 0
+
+    temp = ingredients.get(keys[i]) // recipe.get(keys[i])
+    if temp == 0:
+      return 0
+    else:
+      batches[i] = temp
+
+  return min(batches)
+
 
 
 if __name__ == '__main__':
